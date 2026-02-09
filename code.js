@@ -1,17 +1,16 @@
-function createPlayer(name) {
-    return {name}
+function createPlayer(name, logo) {
+    return {name, logo}
 }
 
 const Gameboard = (function(position, tile){
 
     const gamearray = ["","","","","","","","",""]
 
-    const edit = (position, tile) => gamearray[position] = tile
+    const edit = () => gamearray[position] = tile
     const getBoard = () => gamearray
+    const checkWin = () => {
 
-    return {edit, getBoard}
+    }
+
+    return {edit, getBoard, checkWin}
 })()
-
-function checkWin (gamearray) {
-
-}
