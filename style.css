@@ -5,13 +5,61 @@
 }
 
 body{
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .header{
     display: flex;
-    color: white;
+    color: #ff4fd8;
     font-size: 2rem;
     justify-content: center;
     padding: 1rem;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3,120px);
+}
+
+.tile{
+    display: flex;
+    border: 1px solid white;
+    color: white;
+}
+
+button{
+    width: 120px;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.score, #start-screen{
+    color: #05a5a5;
+}
+
+#start-form{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
 }

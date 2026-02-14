@@ -12,16 +12,51 @@
         <h1>Welcome to Tic Tac Toe</h1>
     </div>
 
-    <div class="grid-container">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
-        <div class="seven"></div>
-        <div class="eight"></div>
-        <div class="nine"></div>
+    <div id="start-screen" class="screen active">
+        <h1>Enter Player Names</h1>
+
+        <form id="start-form">
+            <input type="text" id="player1" placeholder="Player 1 Name" required />
+            <input type="text" id="player2" placeholder="Player 2 Name" required />
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+
+
+    <div id="game-screen" class="gameScreen">
+        <div class="score">
+            Player 1 vs Player 2
+        </div>
+
+        <div class="grid-container">
+            <div class="tile" id="button-one">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-two">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-three">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-four">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-five">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-six">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-seven">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-eight">
+                <button class="click">click me</button>
+            </div>
+            <div class="tile" id="button-nine">
+                <button class="click">click me</button>
+            </div>
+        </div>
     </div>
     <script src="code.js"></script>
 </body>
