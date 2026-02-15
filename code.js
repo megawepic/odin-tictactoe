@@ -1,7 +1,6 @@
 let player1
 let player2
 let currPlayer
-let gameover = false
 
 function createPlayer(name, logo) {
     return {name, logo}
@@ -16,7 +15,19 @@ function swapPlayer(){
 }
 
 function gameWon(){
-    
+    const gameOptions = document.getElementById("game-options")
+    const endRound = document.getElementById("end-round")
+    const gameEnd = document.createElement("h2")
+    gameEnd.textContent = `Congrats!! ${currPlayer.name} Won`
+    endRound.prepend(gameEnd)
+
+    const nextRound = document.createElement("button")
+    nextRound.textContent = "Next Round?"
+    const reset = document.createElement("button")
+    reset.textContent = "Reset Game?"
+
+    gameOptions.appendChild(nextRound)
+    gameOptions.appendChild(reset)
 }
 
 const Gameboard = (function(position, tile){
@@ -75,11 +86,14 @@ tiles.forEach(tile => {
     tile.addEventListener("click", function(e) {
         e.preventDefault()
 
+        if (Gameboard.checkWin()){
+            console.log("win")
+            gameWon()
+            return
+        }
+
         if (Gameboard.getBoard()[e.target.dataset.index] !== "") return;
 
-        if (gameover){
-
-        }
         if (currPlayer == player1){
             const cross = document.createElement("img")
             cross.src = "Images/close-thick.svg"
@@ -101,10 +115,7 @@ tiles.forEach(tile => {
         swapPlayer()
         const turn = document.getElementById("turn")
         turn.textContent = `${currPlayer.name}'s turn`
-           
-        if (Gameboard.checkWin()){
-            gameover = true
-        }
+
     });
 });
 
