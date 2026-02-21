@@ -30,8 +30,16 @@ function gameWon(){
     const nextRound = document.createElement("button")
     nextRound.textContent = "New Round?"
     nextRound.addEventListener("click", function(){
+        tiles.forEach(tile => {
+            tile.innerHTML = "";
+        });
 
+        endRound.innerHTML = ""
+        gameover = false
+
+        Gameboard.resetBoard()
     })
+
     const reset = document.createElement("button")
     reset.textContent = "Reset Game?"
     reset.addEventListener("click", function(){
@@ -39,14 +47,14 @@ function gameWon(){
         gameScreen.classList.remove("active")
 
         tiles.forEach(tile => {
-        tile.innerHTML = "";
+            tile.innerHTML = "";
+        });
 
         score.innerHTML = ""
         endRound.innerHTML = ""
         gameover = false
-    });
 
-    Gameboard.resetBoard()
+        Gameboard.resetBoard()
     })
 
     gameOptions.appendChild(nextRound)
@@ -56,22 +64,46 @@ function gameWon(){
 }
 
 function gameDraw(){
-    const gameOptions = document.getElementById("game-options")
+    const gameOptions = document.createElement("div")
+    gameOptions.setAttribute("id", "game-options")
     const endRound = document.getElementById("end-round")
     const gameEnd = document.createElement("h2")
+    const score = document.getElementById("score")
+    endRound.appendChild(gameOptions)
     gameover = true
-    gameEnd.textContent = `Tie Game`
-    endRound.prepend(gameEnd)
 
-    tiles.forEach(tile => {
-        tile.innerHTML = "";
-    });
+    gameEnd.textContent = `Game Tied`
+    endRound.prepend(gameEnd)
 
     const nextRound = document.createElement("button")
     nextRound.textContent = "New Round?"
-    nextRound.funct
+    nextRound.addEventListener("click", function(){
+        tiles.forEach(tile => {
+            tile.innerHTML = "";
+        });
+
+        endRound.innerHTML = ""
+        gameover = false
+
+        Gameboard.resetBoard()
+    })
+
     const reset = document.createElement("button")
     reset.textContent = "Reset Game?"
+    reset.addEventListener("click", function(){
+        startScreen.classList.add("active")
+        gameScreen.classList.remove("active")
+
+        tiles.forEach(tile => {
+            tile.innerHTML = "";
+        });
+
+        score.innerHTML = ""
+        endRound.innerHTML = ""
+        gameover = false
+
+        Gameboard.resetBoard()
+    })
 
     gameOptions.appendChild(nextRound)
     gameOptions.appendChild(reset)
