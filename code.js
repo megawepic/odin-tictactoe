@@ -4,7 +4,7 @@ let currPlayer
 let gameover = false
 
 function createPlayer(name, logo) {
-    return {name, logo}
+    return {name, logo, score:0}
 }
 
 function swapPlayer(){
@@ -16,6 +16,11 @@ function swapPlayer(){
 }
 
 function gameWon(){
+    currPlayer.score++;
+
+    document.getElementById("p1-points").textContent = player1.score;
+    document.getElementById("p2-points").textContent = player2.score;
+
     const gameOptions = document.createElement("div")
     gameOptions.setAttribute("id", "game-options")
     const endRound = document.getElementById("end-round")
@@ -23,7 +28,7 @@ function gameWon(){
     const score = document.getElementById("score")
     endRound.appendChild(gameOptions)
     gameover = true
-
+    
     gameEnd.textContent = `Congrats!! ${currPlayer.name} Won`
     endRound.prepend(gameEnd)
 
@@ -59,8 +64,6 @@ function gameWon(){
 
     gameOptions.appendChild(nextRound)
     gameOptions.appendChild(reset)
-
-
 }
 
 function gameDraw(){
@@ -149,6 +152,8 @@ startForm.addEventListener("submit", function(e) {
 
     const name1 = document.getElementById("player1").value;
     const name2 = document.getElementById("player2").value;
+    const p1ScoreDiv = document.getElementById("player1-score");
+    const p2ScoreDiv = document.getElementById("player2-score");
 
     player1 = createPlayer(name1, "X");
     player2 = createPlayer(name2, "O");
@@ -157,6 +162,19 @@ startForm.addEventListener("submit", function(e) {
     startScreen.classList.remove("active")
     gameScreen.classList.add("active")
 
+    p1ScoreDiv.innerHTML = `
+    <div class="score-card">
+        <div class="score-name">${player1.name}</div>
+        <div class="score-number" id="p1-points">${player1.score}</div>
+    </div>
+    `
+
+    p2ScoreDiv.innerHTML = `
+    <div class="score-card">
+        <div class="score-name">${player2.name}</div>
+        <div class="score-number" id="p2-points">${player2.score}</div>
+    </div>
+    `
     const score = document.getElementById("score")
     const playerscore = document.createElement("h1")
     playerscore.textContent = `${player1.name} vs ${player2.name}`

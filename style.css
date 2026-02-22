@@ -92,7 +92,7 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 #player1-score, #player2-score{
@@ -122,4 +122,33 @@ button{
 
 #game-options > button{
     padding: 8px 12px;
+}
+
+.score-table {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 3rem;
+}
+
+.score-card {
+    width: 180px;
+    padding: 12px;
+    border: 2px solid #00f5ff;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #1a0028;
+    box-shadow: 0 0 15px rgba(0,245,255,0.6);
+}
+
+.score-name {
+    font-size: 1.2rem;
+    color: #ff4fd8;
+    margin-bottom: 10px;
+}
+
+.score-number {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #00f5ff;
 }
