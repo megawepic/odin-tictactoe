@@ -88,6 +88,24 @@ button{
     border-radius: 4px;
 }
 
+#game-screen{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#player1-score, #player2-score{
+    color: #ff4fd8;
+}
+
+.score-table{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10rem;
+    gap: 2rem;
+}
+
 #end-round{
     margin-top: 2rem;
     color: #0fd7d7;
